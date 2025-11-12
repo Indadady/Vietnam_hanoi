@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourmaker - 하노이/옌뜨/하롱베이 3박 5일 (비경)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f0f2f5; color: #1a202c; }
+        
+        /* Hero Background: Halong Bay Image */
+        .hero-bg-vietnam {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://indochinacharmtravel.com/wp-content/uploads/2022/09/Halong-Bay-UNESCO-World-Heritage-Site.jpg');
+            background-size: cover;
+            background-position: center;
+           }
+        
+        /* Theme: Green (Nature) & Gold (Luxury) */
+        .nav-link { transition: color 0.3s, border-bottom-color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #047857; border-bottom-color: #047857; } /* emerald-700 */
+        .tab-btn { transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+        .tab-btn.active { background-color: #065f46; color: white; border-color: #065f46; } /* emerald-800 */
+        .timeline-item::before { content: ''; position: absolute; left: 11px; top: 12px; bottom: -12px; width: 2px; background-color: #e2e8f0; }
+        .timeline-item:last-child::before { display: none; }
+        .timeline-dot { position: absolute; left: 0; top: 12px; width: 24px; height: 24px; border-radius: 50%; background-color: white; border: 4px solid #065f46; } /* emerald-800 */
+        
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s16000/logo.png" alt="Tourmaker Logo" class="h-8 w-auto">
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-transparent">소개</a>
+                        <a href="#highlight" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-transparent">상품 하이라이트</a>
+                        <a href="#timeline" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-transparent">전체일정</a>
+                        <a href="#details" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-transparent">상세일정</a>
+                        <a href="#inclusions" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-transparent">포함/불포함</a>
+                        <a href="#info" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-transparent">여행 정보</a> <a href="#partner" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-transparent">문의</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-bg-vietnam text-white text-center flex items-center justify-center min-h-screen -mt-16">
+            <div class="container mx-auto px-4">
+                <p class="text-xl font-semibold text-emerald-300">Vietnam Airlines 5성급 럭셔리 패키지</p>
+                <h1 class="text-5xl md:text-7xl font-black mt-4 leading-tight">하노이 옌뜨 (하롱베이+비경)</h1>
+                
+                <div class="mt-8 max-w-3xl mx-auto bg-black/50 p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4">가장 완벽한 하노이/하롱베이 3박 5일</h2>
+                    <p class="text-lg">베트남의 천년 고도 하노이, 신성한 옌뜨 국립공원, 그리고 유네스코 세계유산 하롱베이의 숨겨진 비경(秘境)까지, 5성급 호텔과 고품격 특전으로 잊을 수 없는 감동을 선사합니다.</p>
+                </div>
+                <div class="mt-8 flex flex-col md:flex-row justify-center gap-4 text-lg font-bold">
+                    <div class="bg-white/20 p-4 rounded-lg">출발: 2026년 3월초 기준</div>
+                    <div class="bg-white/20 p-4 rounded-lg">항공: 베트남 항공 (Vietnam Airlines)</div>
+                    <div class="bg-white/20 p-4 rounded-lg text-yellow-300">상품가: 별도문의 </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="highlight" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">✨ 5성급 (비경) 상품 하이라이트</h2>
+                <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
+                     <div class="bg-emerald-800 text-white p-6 rounded-lg shadow-xl flex flex-col text-center">
+                         <h3 class="text-2xl font-bold mb-3">하롱베이 & 비경(秘境)</h3>
+                         <p class="flex-grow text-sm mb-4">유람선은 물론, 스피드보트로 하롱베이의 숨겨진 절경 (향루원, 하늘문, 연꽃바위 등)을 탐험합니다.</p>
+                         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/e2/d6/a2/caption.jpg?h=400&s=1&w=500" alt="하롱베이 비경 스피드보트" class="rounded-lg h-32 object-cover">
+                     </div>
+                     <div class="bg-yellow-700 text-white p-6 rounded-lg shadow-xl flex flex-col text-center">
+                         <h3 class="text-2xl font-bold mb-3">전 일정 5성급 호텔</h3>
+                         <p class="flex-grow text-sm mb-4">하노이(모벤픽/노보텔) & 하롱베이(더 왓슨) 등 검증된 5성급 호텔에서 편안한 휴식을 보장합니다.</p>
+                         <img src="https://images.trvl-media.com/lodging/92000000/91360000/91355200/91355120/cf45b1f4.jpg?impolicy=resizecrop&ra=fill&rh=575&rw=575" alt="하롱베이 왓슨 호텔 객실" class="rounded-lg h-32 object-cover">
+                     </div>
+                     <div class="bg-gray-800 text-white p-6 rounded-lg shadow-xl flex flex-col text-center">
+                         <h3 class="text-2xl font-bold mb-3">롯데 하노이 전망대</h3>
+                         <p class="flex-grow text-sm mb-4">하노이의 랜드마크, 롯데센터 65층 스카이워크에서 도시의 전경을 한눈에 담아봅니다.</p>
+                          <img src="https://discoveryourvietnam.com/wp-content/uploads/2022/10/Lotte_Tower_Observation_Deck_Discover_Your_Vietnam_Travel_Company.jpg" alt="롯데 하노이 전망대" class="rounded-lg h-32 object-cover">
+                     </div>
+                     <div class="bg-blue-800 text-white p-6 rounded-lg shadow-xl flex flex-col text-center">
+                         <h3 class="text-2xl font-bold mb-3">고품격 특전</h3>
+                         <p class="flex-grow text-sm mb-4">드마리스 뷔페, 선상 활어회, 옌뜨 정식 등 맛의 향연과 전신 마사지 90분 힐링을 제공합니다.</p>
+                         <img src="https://static.wixstatic.com/media/116307_24f8255ca29742c192d0f42302cfd0c8~mv2.png/v1/fill/w_640%2Ch_296%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/116307_24f8255ca29742c192d0f42302cfd0c8~mv2.png" alt="고품격 특전 식사" class="rounded-lg h-32 object-cover">
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">한눈에 보는 3박 5일</h2>
+                 <div class="max-w-3xl mx-auto">
+                     <div class="relative pl-8">
+                         <div class="timeline-item pb-12">
+                             <div class="timeline-dot"></div>
+                             <h3 class="text-xl font-bold mb-2">DAY 1: 하노이 시티투어</h3>
+                             <p class="text-gray-600">하노이 도착 후 호치민 생가, 바딘 광장 등 핵심 시내와 호안끼엠 호수(전동카)를 탐방합니다.</p>
+                         </div>
+                         <div class="timeline-item pb-12">
+                             <div class="timeline-dot"></div>
+                             <h3 class="text-xl font-bold mb-2">DAY 2: 옌뜨 국립공원 & 하롱베이</h3>
+                             <p class="text-gray-600">옌뜨 국립공원(케이블카) 관람 후 하롱베이로 이동, 수상인형극과 마사지 90분을 즐깁니다.</p>
+                         </div>
+                         <div class="timeline-item pb-12">
+                             <div class="timeline-dot"></div>
+                             <h3 class="text-xl font-bold mb-2">DAY 3: 하롱베이 유람선 & 비경</h3>
+                             <p class="text-gray-600">유람선으로 하롱만 절경과 티톱섬을, 스피드보트로 숨겨진 비경을 탐험하는 하롱베이 완벽일주.</p>
+                         </div>
+                         <div class="timeline-item pb-12">
+                             <div class="timeline-dot"></div>
+                             <h3 class="text-xl font-bold mb-2">DAY 4: 하노이 귀환 & 롯데타워</h3>
+                             <p class="text-gray-600">하노이로 귀환, 민족학 박물관과 롯데센터 전망대 관람 후 공항으로 이동합니다.</p>
+                         </div>
+                          <div class="timeline-item">
+                             <div class="timeline-dot"></div>
+                             <h3 class="text-xl font-bold mb-2">DAY 5: 인천 도착</h3>
+                             <p class="text-gray-600">이른 아침 인천공항에 도착하여 해산합니다.</p>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="details" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">상세 일정 알아보기</h2>
+                <div class="max-w-5xl mx-auto">
+                    <div class="mb-8 flex flex-wrap justify-center border-b">
+                        <button class="tab-btn active text-lg font-bold py-3 px-6 border-b-2" data-tab="day1">DAY 1</button>
+                        <button class="tab-btn text-lg font-bold py-3 px-6 border-b-2" data-tab="day2">DAY 2</button>
+                        <button class="tab-btn text-lg font-bold py-3 px-6 border-b-2" data-tab="day3">DAY 3</button>
+                        <button class="tab-btn text-lg font-bold py-3 px-6 border-b-2" data-tab="day4_5">DAY 4-5</button>
+                    </div>
+                    <div id="tabs-content" class="p-4 bg-gray-50 rounded-lg">
+                        </div>
+                    <p class="text-center text-sm text-gray-500 mt-8">※ 상기 일정은 항공 또는 현지 상황에 의해 변동될 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="inclusions" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">상품 가격 및 포함/불포함 내역</h2>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-green-50 rounded-lg shadow-lg border border-green-200">
+                        <h3 class="text-2xl font-bold mb-6 text-center text-green-800">✅ 포함 내역</h3>
+                        <div class="mb-4">
+                            <p class="text-lg font-bold text-red-600">상품 가격: 별도 문의</p>
+                            <p class="text-sm text-gray-600">출발일 및 항공 블럭 상황에 따라 변동됩니다.</p>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li><span class="font-bold text-green-700 mr-2">✓</span> 항공료 (베트남항공), 제세공과금</li>
+                            <li><span class="font-bold text-green-700 mr-2">✓</span> 전 일정 5성급 호텔 숙박 (2인 1실)</li>
+                            <li><span class="font-bold text-green-700 mr-2">✓</span> 일정표 상 명시된 식사 및 입장료</li>
+                            <li><span class="font-bold text-green-700 mr-2">✓</span> 전용차량, 현지 가이드, 여행자 보험</li>
+                            <li><span class="font-bold text-green-700 mr-2">✓</span> 가이드 / 기사 경비 일체</li>
+                            <li class="mt-4 pt-4 border-t border-green-200">
+                                <p class="font-bold text-lg text-yellow-800">🎁 특별 제공</p>
+                                <ul class="list-disc list-inside ml-2">
+                                    <li>롯데 하노이 전망대</li>
+                                    <li>하롱베이 비경 (스피드보트)</li>
+                                    <li>드마리스 뷔페 1회</li>
+                                    <li>전신 마사지 90분 (팁 별도)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-inner">
+                        <h3 class="text-2xl font-bold mb-6 text-center text-gray-700">❌ 불포함 내역</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li><span class="font-bold text-red-600 mr-2">✗</span> 기타 개인 경비 (음료, 주류 등)</li>
+                            <li><span class="font-bold text-red-600 mr-2">✗</span> 마사지 팁 ($5) 등 매너팁</li>
+                        </ul>
+                        <h3 class="text-2xl font-bold mb-4 mt-8 text-center text-gray-700">📋 참고 사항</h3>
+                        <ul class="space-y-3 text-gray-700">
+                             <li><span class="font-bold text-blue-600 mr-2">ⓘ</span> 본 상품은 블럭석 기준으로, 예약 시점 항공 재확인 필수입니다.</li>
+                             <li><span class="font-bold text-blue-600 mr-2">ⓘ</span> 쇼핑센터 2회 방문이 포함된 상품입니다.</li>
+                             <li><span class="font-bold text-blue-600 mr-2">ⓘ</span> 선택관광(추가 마사지 등) 가능합니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="info" class="py-16 md:py-24 bg-green-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800">베트남 여행 필수 정보 및 주의사항</h2>
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+                    
+                    <div class="p-6 bg-white rounded-lg shadow-xl">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">☀ 3월의 베트남 날씨 및 옷차림</h3>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong>기후 개요:</strong> 북부 (하노이/하롱베이)는 겨울에서 봄으로 넘어가는 쾌적한 시기로, 평균 기온이 약 15 ~ 23℃입니다. 비가 많지 않아 여행하기 좋습니다. 남부로 갈수록 더워지며 낮 기온이 25 ~ 34℃에 달합니다.</p>
+                            
+                            <h4 class="font-bold text-lg mt-4">👕 옷차림 및 준비물 팁</h4>
+                            <ul class="list-disc list-inside ml-4 space-y-2">
+                                <li><strong>북부 (하노이/하롱베이):</strong> 아침저녁으로 쌀쌀할 수 있으니 **가벼운 자켓, 가디건, 긴팔 셔츠** 준비가 필수입니다. 낮에는 반팔에 얇은 겉옷으로 충분합니다.</li>
+                                <li><strong>남부 (따뜻한 지역):</strong> 얇은 **반팔 티셔츠, 린넨 셔츠, 여름형 바지** 또는 반바지 위주로 준비하세요.</li>
+                                <li><strong>공통:</strong> 햇빛이 강하므로 **선크림, 모자, 선글라스**를 꼭 챙기세요. 가벼운 비에 대비해 얇은 레인코트나 바람막이도 유용합니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-white rounded-lg shadow-xl">
+                        <h3 class="text-2xl font-bold text-red-700 mb-4">🚨 베트남 여행 시 유의사항</h3>
+                        <div class="space-y-4 text-gray-700">
+                             <h4 class="font-bold text-lg">일반 안전 수칙</h4>
+                            <ul class="list-disc list-inside ml-4 space-y-2">
+                                <li>**소매치기/가방 낚아채기 유의:** 관광지, 시장, 혼잡한 장소에서는 가방 및 귀중품 관리에 각별히 유의해야 합니다.</li>
+                                <li>**택시 이용:** 검증된 회사(Mai Linh, Vinasun 등) 또는 앱 기반 호출 서비스를 이용하는 것이 안전합니다.</li>
+                                <li>**금지:** 총이나 강도 같은 심각 범죄는 드물지만, 값비싼 소지품을 눈에 띄게 드러내는 것은 피해야 합니다.</li>
+                            </ul>
+                            
+                             <h4 class="font-bold text-lg mt-4">건강‧위생 및 문화 매너</h4>
+                            <ul class="list-disc list-inside ml-4 space-y-2">
+                                <li>**식수:** 수돗물은 식수로 부적합합니다. 반드시 **병물** 또는 끓인 물을 사용하세요.</li>
+                                <li>**모기:** 모기 매개 질병(뎅기열)을 대비해 모기퇴치제 및 긴 소매 옷을 준비하는 것이 좋습니다.</li>
+                                <li>**문화 매너:** 종교시설이나 전통 마을 방문 시 **노출이 과하지 않은 복장**을 착용하는 것이 바람직합니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="partner" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">최고의 만족을 위해 투어메이커가 함께합니다</h2>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">상품 문의: Tourmaker</h3>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s16000/logo.png" alt="Tourmaker Logo" class="h-10 mx-auto mb-4">
+                    <p class="text-lg text-gray-600 mb-2">담당자: <strong class="text-red-600">이재명 대표</strong></p>
+                    <p class="text-lg text-gray-600 mb-8">연락처: <strong class="text-red-600">010-9443-7881</strong></p>
+                    
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center py-6">
+        <p>&copy; 2026 Tourmaker. All Rights Reserved.</p>
+        <p>최상의 품질과 서비스로 보답하겠습니다.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // --- 1. Nav Link Active Scroll ---
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            sections.forEach(section => observer.observe(section));
+            
+            // --- 2. Itinerary Tab Content ---
+            const scheduleData = {
+                day1: {
+                    title: 'DAY 1 (여행 1일차): 하노이 도착 및 시내 탐방',
+                    items: [
+                        { time: '10:35 / 13:25', desc: '인천 출발 (VN417) / 하노이 노이바이 공항 도착', icon: '✈️' },
+                        { time: '오후', desc: '가이드 미팅 후 하노이 시내 이동', icon: '🚌' },
+                        { time: '관광', desc: '호치민 생가 (고상식 거주와 관저)', icon: '🏛️', img: 'https://statics.vinpearl.com/Presidential-palace-01_1668259174.jpg' },
+                        { time: '관광', desc: '한기둥 사원 (베트남 국보 1호)', icon: '🕌', img: 'https://vpt-en.b-cdn.net/wp-content/uploads/a/23/architecture-one-pillar-pagoda.jpg.webp' },
+                        { time: '관광', desc: '바딘 광장 (베트남 독립선언 장소)', icon: '🏞️', img: 'https://vietnamtour.in/wp-content/uploads/raising-flag-ceremony.jpg.jpg' },
+                        { time: '관광', desc: '호치민 박물관 관람', icon: '🖼️' },
+                        { time: '체험', desc: '하노이 구시가지 및 호안끼엠 호수 (전동카 체험 약 25분)', icon: '🚃' },
+                        { time: '석식', desc: '<strong class="text-yellow-700">[특전] 드마리스 뷔페</strong>', icon: '🍽️', img: 'https://static.wixstatic.com/media/116307_24f8255ca29742c192d0f42302cfd0c8~mv2.png/v1/fill/w_640%2Ch_296%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/116307_24f8255ca29742c192d0f42302cfd0c8~mv2.png' },
+                        { time: '숙박', desc: '모벤픽 / 그랜드K / 노보텔 타이하 OR 동급 (5성급)', icon: '🏨' },
+                    ]
+                },
+                day2: {
+                    title: 'DAY 2 (여행 2일차): 옌뜨 국립공원 & 하롱베이',
+                    items: [
+                        { time: '오전', desc: '호텔 조식 후 옌뜨 국립공원으로 이동 (약 1시간 30분)', icon: '🚌' },
+                        { time: '관광', desc: '<strong class="text-green-800">옌뜨 국립공원 관람 (케이블카 이용)</strong>', icon: '🚠', img: 'https://static.vinwonders.com/production/2025/03/The-Yen-Tu-Mountain-height-is-about-1068-meters.jpg' },
+                        { time: '관광', desc: '옌뜨 명산 및 대표 사원 (화안사) 관람', icon: '🏞️' },
+                        { time: '중식', desc: '옌뜨 정식', icon: '🍴', img: 'https://m.ahstatic.com/is/image/accorhotels/HCM_P_5621987%3A3by2?dpr=on%2C1.5&fmt=jpg&hei=223&icc=sRGB&iccEmbed=true&op_usm=1.75%2C0.3%2C2%2C0&qlt=80&resMode=sharp2&wid=335' },
+                        { time: '오후', desc: '하롱베이로 이동 (약 1시간 30분)', icon: '🚌' },
+                        { time: '관람', desc: '베트남 전통문화 <strong class="text-green-800">수상인형극</strong> 관람', icon: '🎭' },
+                        { time: '체험', desc: '콩카페(커피시음) 및 하롱베이 야시장 관람', icon: '☕' },
+                        { time: '힐링', desc: '<strong class="text-yellow-700">[특전] 베트남 전통 전신마사지 (90분)</strong> (팁 $5 별도)', icon: '💆' },
+                        { time: '석식', desc: '무제한 삼겹살', icon: '🍽️', img: 'https://static.wixstatic.com/media/85bb20_8f73dcb836df4d71bfc6dfb6f543f840~mv2.png/v1/fill/w_568%2Ch_510%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/85bb20_8f73dcb836df4d71bfc6dfb6f543f840~mv2.png' },
+                        { time: '숙박', desc: '더 왓슨 OR 동급 (5성급)', icon: '🏨', img: 'https://thewatsonpremiumhalonghotel.com/uploads/photos/full_1687252754_1489_9bdff96672d754e9a4bf918853b12d32.jpg' },
+                    ]
+                },
+                day3: {
+                    title: 'DAY 3 (여행 3일차): 하롱베이 유람선 & 비경(秘境)',
+                    items: [
+                        { time: '오전', desc: '호텔 조식 후 선착장 이동', icon: '🥐' },
+                        { time: '관광', desc: '<strong class="text-green-800">하롱베이 유람선 탑승</strong> (3000여개 기암괴석 감상)', icon: '🚢' },
+                        { time: '관광', desc: '석회 동굴 감상', icon: '🏞️' },
+                        { time: '중식', desc: '<strong class="text-yellow-700">[특식] 선상 중식 (활어회+씨푸드, 매운탕)</strong>', icon: '🦞', img: 'https://app-api.glodival.vn/storage/4/images/hanoi-pho-ngon-37-recreates-a-vibrant-street-food-market-with-diverse-vietnamese-dishes-highlighted-by-fresh-seafood-favorites-in-a-modern-setting-17593090302X928.jpg' },
+                        { time: '관광', desc: '<strong class="text-green-800">티톱섬 전망대</strong> (하롱베이 전체 조망)', icon: '🏝️' },
+                        { time: '체험', desc: '<strong class="text-red-600">[핵심특전] 비경 관광 (스피드보트)</strong>', icon: '🚤' },
+                        { time: '체험', desc: ' (향루원, 낙타봉, 하늘문, 연꽃바위, 향쯩 등)', icon: '🌄' },
+                        { time: '오후', desc: '육지로 귀환 후 석식 (쌈밥정식+김치전골)', icon: '🍴', img: 'https://images.openai.com/static-rsc-1/Pr3CLyTtrqA7XHJfpcfCzjuuJ3eimw6mSWUkx1mymd9lcoqgiAXXJzMCsEMTpXz-NdxK3Jezqxzd0msuzpf2pOpI16l2VrFux7GlXDXDlD2a5D3iL2VDvbpbIHWE4bc3dyuaJ0h_fs3KIvdMZMWjkg' },
+                        { time: '숙박', desc: '더 왓슨 OR 동급 (5성급)', icon: '🏨' },
+                    ]
+                },
+                day4_5: {
+                    title: 'DAY 4-5 (여행 4-5일차): 하노이 복귀 및 인천 도착',
+                    items: [
+                        { time: '오전', desc: '호텔 조식 후 하노이로 이동 (약 2시간 30분)', icon: '🚌' },
+                        { time: '관광', desc: '민족학 박물관 (베트남 소수민족 역사/생활 관람)', icon: '🏛️' },
+                        { time: '중식', desc: '반세오 + 분짜 + 짜조', icon: '🍴', img: 'https://media.holafly.com/sites/1/2024/12/Banh-xeo-vietnam-street-food.jpg' },
+                        { time: '관광', desc: '<strong class="text-yellow-700">[특전] 롯데센터 하노이 전망대 관람</strong>', icon: '🏙️', img: 'https://discoveryourvietnam.com/wp-content/uploads/2022/10/Lotte_Tower_Observation_Deck_Discover_Your_Vietnam_Travel_Company.jpg' },
+                        { time: '체험', desc: '하노이 핫플레이스 맥주거리 관람', icon: '🍻' },
+                        { time: '석식', desc: '한식', icon: '🍽️' },
+                        { time: '23:40', desc: '하노이 노이바이 공항 출발 (VN416)', icon: '✈️' },
+                        { time: '05:30', desc: '(DAY 5) 인천 국제공항 도착', icon: '🛬' },
+                    ]
+                }
+            };
+            
+            const tabsContainer = document.getElementById('tabs-content');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+
+            function renderTabContent(day) {
+                const data = scheduleData[day];
+                // Increase spacing for better image display
+                let content = `<h3 class="text-2xl font-bold mb-6">${data.title}</h3><ul class="space-y-6">`; 
+                data.items.forEach(item => {
+                    // Check if image URL exists and generate image tag
+                    let imageHtml = item.img ? `<img src="${item.img}" alt="${item.desc.replace(/<[^>]*>?/gm, '')}" class="rounded-lg shadow-md mt-2 w-full object-cover max-h-40 md:max-h-64">` : '';
+
+                    content += `
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4 flex-shrink-0">${item.icon}</span>
+                            <div class="flex-grow">
+                                <p class="font-bold text-gray-800">${item.time}</p>
+                                <p class="text-gray-600">${item.desc}</p>
+                                ${imageHtml}
+                            </div>
+                        </li>
+                    `;
+                });
+                content += '</ul>';
+                
+                tabsContainer.innerHTML = content;
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    renderTabContent(button.dataset.tab);
+                });
+            });
+
+            // Initial load
+            renderTabContent('day1');
+        });
+    </script>
+</body>
+</html>
